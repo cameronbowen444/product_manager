@@ -1,0 +1,148 @@
+body{
+    background: linear-gradient(135deg, #0d5a90 0%, #000000 100%);
+    color: white;
+    margin: 0px;
+    min-height: 100vh;
+    width: 100%;
+
+}
+
+.center-login{
+    color: white;
+    margin: 150px 10px;
+    padding: 20px;
+    width: 500px;
+    background: rgba(34, 59, 113, 0.683);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.text-align{
+    text-align: center;
+    margin: 20px 0px;
+}
+.form-label-l{
+    color: white;
+}
+.btn-l{
+    padding: 7px 40px;
+    border-radius: 20px;
+    margin: 10px 0px 0px 0px;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.p-l{
+    margin-right: 5px;
+}
+.link-l{
+    text-decoration: none;
+}
+.box1{
+    margin: 20px 0px;
+    padding: 15px;
+    background-color: grey;
+}
+.products-table{
+    margin: 20px 0px;
+    padding: 15px;
+}
+.table{
+    background-color: rgba(103, 103, 103, 0.222);
+    color: white !important;
+}
+tr:hover{
+    background-color: black;
+    color: white;
+}
+thead{
+    background-color: black;
+    color: white;
+}
+.line{
+    margin: 40px 0px;
+}
+.right{
+    text-align: right;
+}
+
+.col-44{
+    background-color: lightblue;
+    padding: 25px;
+}
+#productForm{
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+}
+label{
+    font-weight: bolder;
+
+}
+#newProduct{
+    width: 550px;
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-image: linear-gradient(135deg, #0d5a90 0%, #000000 100%);
+}
+input, textarea, select{
+    background-color: rgb(92, 92, 92) !important;
+    border-color: rgb(92, 92, 92) !important;
+    color: white !important;
+}
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+
+.flex{
+    display: flex;
+    justify-content: flex-start;
+}
+.dropdown{
+    margin: 0px 20px;
+}
+.side{
+    display: flex;
+}
+.search-input{
+    margin-right: 5px;
+}
+.del-item{
+    border: 1.25px solid rgb(147, 145, 145);
+    padding-bottom: 12px;
+}
+.btn{
+    border-radius: 0px !important;
+}
+.btn3{
+    margin-right: 5px;
+}
+.boxed{
+    margin: 0px auto;
+    width: 625px;
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-image: linear-gradient(135deg, #0d5a90 0%, #000000 100%);
+}
+.info{
+    margin: 10px;
+    padding: 10px;
+    background-image: radial-gradient( circle farthest-corner at -4% -12.9%,  rgba(74,98,110,1) 0.3%, rgba(30,33,48,1) 90.2% );
+}
+.detail{
+    font-weight: lighter;
+}
+.btns-1{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}

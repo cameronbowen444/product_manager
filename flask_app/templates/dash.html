@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="body">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Product Manager</a>
+            <form class="d-flex" role="search">
+                <a href="/logout" class="btn btn-outline-primary" type="button">Logout</a>
+            </form>
+        </div>
+    </nav>
+    <div class="container" id="container">
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <h2 class="text-align">All Categories</h2>
+                <div class="box1">
+                    <div class="list-group list-group-flush">
+                        {% for c in categories: %}
+                        {% if c.user_id.id == session["user_id"] %}
+                        <a href="/dashboard/{{c.id}}" class="list-group-item list-group-item-action id">{{c.name}}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <a class="btn btn-primary" href="/dashboard">Add Category</a>
+                
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="products-table">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <h1>All Products By Category</h1>
+                </div>
+                <div class="col-4 right">
+                    <a href="/products" class="btn btn-primary">Add Product</a>
+                    <a href="/dashboard" id="sendRequest" class="btn btn-primary">Get All Products</a>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Wholesale</th>
+                        <th scope="col">Retail</th>
+                        <th scope="col">Inventory</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Category</th>
+                    </tr>
+                </thead>
+                <tbody id="catInfo">
+                    {% for p in products.products: %}
+                    <tr>
+                        <th scope="row">{{p.id}}</th>
+                        <td>{{p.name}}</td>
+                        <td>{{p.wholesale}}</td>
+                        <td>{{p.retail}}</td>
+                        <td>{{p.inventory}}</td>
+                        <td>{{p.created_at}}</td>
+                        <td>{{products.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

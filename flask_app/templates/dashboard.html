@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body >
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Product Manager</a>
+            <form class="d-flex" role="search">
+                <a href="/logout" class="btn btn-outline-primary" type="button">Logout</a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container" id="container">
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <h2 class="text-align">All Categories</h2>
+                <div id="category" class="box1">
+                    <div class="list-group list-group-flush">
+                        {% for c in categories %}
+                            {% if c.user_id.id == session["user_id"] %}
+                            <div class="flex">
+                                <a href="/dashboard/{{c.id}}" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action id">
+                                    {{ c.name }}
+                                </a>
+                                <div>
+                                    <a href="/delete-category/{{c.id}}" class=" btn btn-danger del-item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            
+            </div>
+            <div class="col-3">
+                <form action="/new-category" id="newCategory" method="post">
+                    <h2 class="text-align">New Category</h2>
+                    {% with messages = get_flashed_messages(category_filter=['category']) %}
+                        {% if messages %}
+                        <div id="validate" class="alert alert-danger" role="alert">
+                            <strong>Flash AHHHHHHH!!!!</strong>
+                                {% for message in messages %}
+                                <div>{{message}}</div>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                    <input type="hidden" value={{categories.user_id}} name="user_id">
+                    <div class="mb-3">
+                        <label class="form-label">Category Name</label>
+                        <input type="text" id="name" name="name" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Category</button>
+                </form>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="products-table">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <h1>All Products</h1>
+                </div>
+                <div class="col-4 right">
+                    <a href="/products" class="btn btn-primary">Add Product</a>
+                    <a href="/dashboard" id="sendRequest" class="btn btn-primary">Get All Products</a>
+                </div>
+            </div>
+            <div class="flex">
+                <form id="searched" method="GET" action="/product-search">  <!-- using GET will place the form inputs in the url as query strings-->
+                    <div class="mb-3 side">
+                        <input type="text" class="form-control search-input" placeholder="product..." name="name" id="searching">
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">Category</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Wholesale</th>
+                        <th scope="col">Retail</th>
+                        <th scope="col">Inventory</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="product_info">
+                    {% for p in products %}
+                        {% if p.user_id.id == session["user_id"] %}
+                        <tr>
+                            <td>{{p.category_id.name}}</td>
+                            <td>{{p.name}}</td>
+                            <td>{{p.wholesale}}</td>
+                            <td>{{p.retail}}</td>
+                            <td>{{p.inventory}}</td>
+                            <td>{{p.created_at.strftime("%m-%d-%Y %H:%M %p")}}</td>
+                            <td><a class="btn btn-outline-primary btn3" href="/product/{{p.id}}">Show</a><a href="/edit/{{p.id}}" class="btn btn-outline-success">Edit</a> <a href="/delete-product/{{p.id}}" class="btn btn-outline-danger">Delete</a></td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        <div class="line"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>
