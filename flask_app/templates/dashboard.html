@@ -92,7 +92,7 @@
                         <th scope="col">Name</th>
                         <th scope="col" class="smaller">Wholesale</th>
                         <th scope="col" class="smaller">Retail</th>
-                        <th scope="col">Inventory</th>
+                        <th scope="col"  class="smaller">Inventory</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -103,8 +103,8 @@
                             <td>{{p.category_id.name}}</td>
                             <td>{{p.name}}</td>
                             <td class="smaller">{{p.wholesale}}</td>
-                            <td class="smaller">{{p.retail}}</td>
-                            <td >{{p.inventory}}</td>
+                            <td class="smaller" >{{p.retail}}</td>
+                            <td class="smaller">{{p.inventory}}</td>
                             <td>
                                 <a class="btn btn-outline-primary" href="/product/{{p.id}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-square" viewBox="0 0 16 16">
