@@ -6,6 +6,20 @@ body{
     width: 100%;
 
 }
+@media only screen and (max-width: 600px) {
+    .center-login {
+        margin: 10px 5px !important;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .smaller{
+        display: none;
+    }
+}
+table, .table{
+    overflow-x: scroll !important;
+    min-width: 200px;
+}
 
 .center-login{
     color: white;
@@ -119,7 +133,7 @@ input, textarea, select{
     border-radius: 0px !important;
 }
 .btn3{
-    margin-right: 5px;
+    margin: 5px;
 }
 .boxed{
     margin: 0px auto;
