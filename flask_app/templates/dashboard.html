@@ -20,7 +20,7 @@
 
     <div class="container" id="container">
         <div class="row justify-content-around">
-            <div class="col-6">
+            <div class="col">
                 <h2 class="text-align">All Categories</h2>
                 <div id="category" class="box1">
                     <div class="list-group list-group-flush">
@@ -44,7 +44,7 @@
                 </div>
             
             </div>
-            <div class="col-3">
+            <div class="col">
                 <form action="/new-category" id="newCategory" method="post">
                     <h2 class="text-align">New Category</h2>
                     {% with messages = get_flashed_messages(category_filter=['category']) %}

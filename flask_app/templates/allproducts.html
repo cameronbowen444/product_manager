@@ -18,20 +18,18 @@
         </div>
     </nav>
     <div class="container">
-
-        <div>
-            <div class="boxed">
-                <h1>Product: {{product.name}}</h1>
-                <h5 class="info">Description: <span class="detail">{{product.description}}</span></h5>
-                <h5 class="info">Wholesale Price: <span class="detail">{{product.wholesale}}</span></h5>
-                <h5 class="info">Retail Price: <span class="detail">{{product.retail}}</span></h5>
-                <h5 class="info">Inventory: <span class="detail">{{product.inventory}}</span></h5>
-                <h5 class="info">Created: <span class="detail">{{product.created_at}}</span></h5>
-                <h5 class="info">Updated: <span class="detail">{{product.updated_at}}</span></h5>
-                <div class="btns-1">
-                    <a href="/edit/{{product.id}}" class="btn btn-primary btn3">Edit</a>
-                    <a href="/delete-product/{{product.id}}" class="btn btn-danger">Delete</a>
-                </div>
+        <div class="boxed">
+            <h1>Product: {{product.name}}</h1>
+            <h5 class="info">Description: <span class="detail">{{product.description}}</span></h5>
+            <h5 class="info">Wholesale Price: <span class="detail">{{product.wholesale}}</span></h5>
+            <h5 class="info">Retail Price: <span class="detail">{{product.retail}}</span></h5>
+            <h5 class="info">Inventory: <span class="detail">{{product.inventory}}</span></h5>
+            <h5 class="info">Created: <span class="detail">{{product.created_at}}</span></h5>
+            <h5 class="info">Updated: <span class="detail">{{product.updated_at}}</span></h5>
+            <div class="btns-1">
+                <a href="/edit/{{product.id}}" class="btn btn-primary btn3">Edit</a>
+                <a href="/delete-product/{{product.id}}" class="btn btn-danger btn3">Delete</a>
+            </div>
         </div>
     </div>
 </body>

@@ -19,7 +19,7 @@
     </nav>
     <div class="container">
         <div id="productForm">
-            <form action="/update-product" method="post" id="newProduct">
+            <form action="/update-product" method="post" id="newProduct" class="boxed">
                 <h2 class="text-align">Edit Product</h2>
                 <div id="validateProduct">
                     {% with messages = get_flashed_messages(category_filter=['product']) %}

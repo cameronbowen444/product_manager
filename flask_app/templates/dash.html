@@ -41,8 +41,8 @@
                     <h1>All Products By Category</h1>
                 </div>
                 <div class="col-4 right">
-                    <a href="/products" class="btn btn-primary">Add Product</a>
-                    <a href="/dashboard" id="sendRequest" class="btn btn-primary">Get All Products</a>
+                    <a href="/products" class="btn btn-primary btn3">Add Product</a>
+                    <a href="/dashboard" id="sendRequest" class="btn btn-primary btn3">Get Products</a>
                 </div>
             </div>
             <table class="table">
@@ -50,9 +50,9 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">Wholesale</th>
-                        <th scope="col">Retail</th>
-                        <th scope="col">Inventory</th>
+                        <th scope="col"  class="smaller">Wholesale</th>
+                        <th scope="col"  class="smaller">Retail</th>
+                        <th scope="col"  class="smaller">Inventory</th>
                         <th scope="col">Created</th>
                         <th scope="col">Category</th>
                     </tr>
@@ -62,9 +62,9 @@
                     <tr>
                         <th scope="row">{{p.id}}</th>
                         <td>{{p.name}}</td>
-                        <td>{{p.wholesale}}</td>
-                        <td>{{p.retail}}</td>
-                        <td>{{p.inventory}}</td>
+                        <td  class="smaller">{{p.wholesale}}</td>
+                        <td  class="smaller">{{p.retail}}</td>
+                        <td  class="smaller">{{p.inventory}}</td>
                         <td>{{p.created_at}}</td>
                         <td>{{products.name}}</td>
                     </tr>
